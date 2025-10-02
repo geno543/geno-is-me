@@ -6,11 +6,9 @@ import {
   TextField,
   Card,
   CardContent,
-  Grid,
   useTheme,
-  useMediaQuery,
   InputAdornment,
-  alpha
+  alpha,
 } from '@mui/material';
 import {
   Search as SearchIcon,
@@ -56,7 +54,6 @@ const Skills: React.FC<SkillsProps> = ({
   maxSkillsPerCategory = 20
 }) => {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   
   const [selectedCategory, setSelectedCategory] = useState<CategoryType>('All');
   const [searchTerm, setSearchTerm] = useState<string>('');
@@ -261,10 +258,10 @@ const Skills: React.FC<SkillsProps> = ({
       </Box>
 
       {/* Skills Grid */}
-      <Grid container spacing={3} sx={{ mb: 4 }}>
+      <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "repeat(2, 1fr)", md: "repeat(3, 1fr)", lg: "repeat(4, 1fr)" }, gap: 3, mb: 4 }}>
         {filteredSkills.length > 0 ? (
           filteredSkills.map((skill, index) => (
-            <Grid item xs={12} sm={6} md={4} lg={3} key={`${skill.name}-${index}`}>
+            <Box key={`${skill.name}-${index}`}>
               <Card
                 onMouseEnter={() => setHoveredSkill(skill.name)}
                 onMouseLeave={() => setHoveredSkill(null)}
@@ -340,10 +337,10 @@ const Skills: React.FC<SkillsProps> = ({
                   )}
                 </CardContent>
               </Card>
-            </Grid>
+            </Box>
           ))
         ) : (
-          <Grid item xs={12}>
+          <Box>
             <Box sx={{ textAlign: 'center', py: 8 }}>
               <Typography
                 variant="h5"
@@ -363,9 +360,9 @@ const Skills: React.FC<SkillsProps> = ({
                 Try adjusting your search or category filter
               </Typography>
             </Box>
-          </Grid>
+          </Box>
         )}
-      </Grid>
+      </Box>
 
       {/* Skills Summary */}
       <Box sx={{ textAlign: 'center', mt: 6 }}>

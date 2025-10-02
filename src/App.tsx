@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect, ReactNode } from 'react'
+import React, { createContext, useState, useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { ThemeProvider, CssBaseline, GlobalStyles, Theme } from '@mui/material'
 import { getTheme } from './theme'

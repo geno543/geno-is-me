@@ -1,4 +1,4 @@
-import React, { Suspense, useState, useEffect } from 'react';
+import React, { Suspense, useState } from 'react';
 import { Box, CircularProgress, useTheme, SxProps, Theme } from '@mui/material';
 
 // Type definitions
@@ -35,8 +35,8 @@ const SplineRobot: React.FC<SplineRobotProps> = ({
 }) => {
   const theme = useTheme();
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [hasError, setHasError] = useState<boolean>(false);
-  const [splineApp, setSplineApp] = useState<SplineApp | null>(null);
+  const [hasError] = useState<boolean>(false);
+  const [, setSplineApp] = useState<SplineApp | null>(null);
 
   // Robot model URL - using verified working robot model from tutorial
   const robotModelUrl = 'https://prod.spline.design/Nmx4Vyeze9wJ-9zm/scene.splinecode';
@@ -47,12 +47,7 @@ const SplineRobot: React.FC<SplineRobotProps> = ({
     onLoad(splineAppInstance);
   };
 
-  const handleError = (error: Error): void => {
-    console.warn('Spline model failed to load:', error);
-    setIsLoading(false);
-    setHasError(true);
-    onError(error);
-  };
+
 
   // Fallback SVG robot when Spline fails to load
   const FallbackRobot: React.FC = () => (
@@ -186,7 +181,6 @@ const SplineRobot: React.FC<SplineRobotProps> = ({
             <SplineComponent
               scene={robotModelUrl}
               onLoad={handleLoad}
-              onError={handleError}
               style={{
                 width: '100%',
                 height: '100%',

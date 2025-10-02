@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Box,
   Typography,
   Container,
   useTheme,
-  useMediaQuery,
+
   IconButton,
   Fade,
   Zoom,
@@ -15,11 +15,6 @@ import {
 } from '@mui/material';
 import { 
   KeyboardArrowDown, 
-  MusicNote, 
-  Code, 
-  Psychology, 
-  Rocket,
-  AutoAwesome,
   PlayArrow
 } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
@@ -38,7 +33,7 @@ interface HeroProps {
   backgroundImage: string;
 }
 
-const Hero: React.FC<HeroProps> = ({ name, tagline, ctaButtons, avatar, backgroundImage }) => {
+const Hero: React.FC<HeroProps> = ({ name, tagline, ctaButtons, avatar }) => {
   const theme = useTheme();
   // const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   // const isTablet = useMediaQuery(theme.breakpoints.down('lg'));
@@ -47,16 +42,12 @@ const Hero: React.FC<HeroProps> = ({ name, tagline, ctaButtons, avatar, backgrou
   // Typing animation state
   const [displayedName, setDisplayedName] = useState<string>('');
   const [displayedTagline, setDisplayedTagline] = useState<string>('');
-  const [isTypingComplete, setIsTypingComplete] = useState<boolean>(false);
   const [showCursor, setShowCursor] = useState<boolean>(true);
   const [taglineTyping, setTaglineTyping] = useState<boolean>(false);
   
   // Animation states
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const [showContent, setShowContent] = useState<boolean>(false);
-  const [showFloatingElements, setShowFloatingElements] = useState<boolean>(false);
-  
-  const typewriterRef = useRef<HTMLSpanElement>(null);
   
   // Typing animation effect for name
   useEffect(() => {
@@ -69,7 +60,6 @@ const Hero: React.FC<HeroProps> = ({ name, tagline, ctaButtons, avatar, backgrou
         currentIndex++;
         timeoutId = setTimeout(typeNextCharacter, 100);
       } else {
-        setIsTypingComplete(true);
         setTimeout(() => setTaglineTyping(true), 500);
       }
     };
@@ -122,13 +112,8 @@ const Hero: React.FC<HeroProps> = ({ name, tagline, ctaButtons, avatar, backgrou
       setShowContent(true);
     }, 500);
     
-    const floatingTimer = setTimeout(() => {
-      setShowFloatingElements(true);
-    }, 2000);
-    
     return () => {
       clearTimeout(contentTimer);
-      clearTimeout(floatingTimer);
     };
   }, []);
   

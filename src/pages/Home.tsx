@@ -536,7 +536,8 @@ const Home: React.FC = () => {
     { name: "Circuit Design", level: 3, category: "Robotics", projects: ["PCB Layout", "Electronic Prototypes"] }
   ];
 
-  const categories: string[] = ['All', 'AI/ML', 'Web Dev', 'Leadership', 'Robotics'];
+  type CategoryType = 'All' | 'AI/ML' | 'Web Dev' | 'Leadership' | 'Robotics';
+  const categories: CategoryType[] = ['All', 'AI/ML', 'Web Dev', 'Leadership', 'Robotics'];
 
   return (
     <PageTransition>

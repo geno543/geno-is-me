@@ -4,12 +4,17 @@ import { Brightness4, Brightness7 } from '@mui/icons-material';
 import { ThemeContext } from '../pages/_app';
 
 // Type definitions
+interface ThemeContextType {
+  isDarkMode: boolean;
+  toggleTheme: () => void;
+}
+
 interface ThemeToggleProps extends Omit<IconButtonProps, 'onClick' | 'color' | 'aria-label'> {
   sx?: SxProps<Theme>;
 }
 
 const ThemeToggle: React.FC<ThemeToggleProps> = ({ sx = {}, ...props }) => {
-  const { isDarkMode, toggleTheme } = useContext(ThemeContext);
+  const { isDarkMode, toggleTheme } = useContext(ThemeContext) as ThemeContextType;
   const theme = useTheme();
 
   return (

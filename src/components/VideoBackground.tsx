@@ -2,13 +2,11 @@ import React, { useEffect, useRef } from 'react';
 import { Box, useTheme, alpha } from '@mui/material';
 
 interface VideoBackgroundProps {
-  videoUrl?: string;
   opacity?: number;
   overlay?: boolean;
 }
 
 const VideoBackground: React.FC<VideoBackgroundProps> = ({
-  videoUrl,
   opacity = 0.3,
   overlay = true,
 }) => {

@@ -15,7 +15,6 @@ interface CacheUsage {
 
 type NotificationPermissionResult = 'granted' | 'denied' | 'unsupported' | 'error'
 
-const isProduction = import.meta.env.PROD
 const swPath = '/sw.js'
 
 // Check if service workers are supported

@@ -305,7 +305,7 @@ export const pageTransitionManager = new PageTransitionManager()
 // Sample page transition animations
 export const sampleAnimations = {
   // Fade and slide transition
-  fadeSlide: (element: Element): TransitionAnimation => ({
+  fadeSlide: (): TransitionAnimation => ({
     enter: {
       from: { opacity: 0, y: 50 },
       to: { opacity: 1, y: 0, duration: 0.8, ease: easings.smooth },
@@ -316,7 +316,7 @@ export const sampleAnimations = {
   }),
 
   // Scale and rotate transition
-  scaleRotate: (element: Element): TransitionAnimation => ({
+  scaleRotate: (): TransitionAnimation => ({
     enter: {
       from: { opacity: 0, scale: 0.8, rotation: -5 },
       to: { opacity: 1, scale: 1, rotation: 0, duration: 1, ease: easings.bounce },
@@ -327,7 +327,7 @@ export const sampleAnimations = {
   }),
 
   // Slide from sides
-  slideHorizontal: (element: Element, direction: 'left' | 'right' = 'left'): TransitionAnimation => ({
+  slideHorizontal: (direction: 'left' | 'right' = 'left'): TransitionAnimation => ({
     enter: {
       from: { opacity: 0, x: direction === 'left' ? -100 : 100 },
       to: { opacity: 1, x: 0, duration: 0.7, ease: easings.expo },

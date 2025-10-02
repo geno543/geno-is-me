@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Typography, useTheme, alpha, IconButton } from '@mui/material';
+import { Box, useTheme, alpha, IconButton } from '@mui/material';
 import { VolumeUp, VolumeOff } from '@mui/icons-material';
 
 const SoundVisualizer: React.FC = () => {

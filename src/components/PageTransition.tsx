@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, ReactNode } from 'react';
+import React, { useRef, ReactNode } from 'react';
 import { Box, BoxProps, SxProps, Theme } from '@mui/material';
 import { useGSAP, pageTransitionManager, respectsReducedMotion } from '../lib/gsap';
 
@@ -24,7 +24,7 @@ const PageTransition: React.FC<PageTransitionProps> = ({
   const containerRef = useRef<HTMLDivElement>(null);
   const hasAnimated = useRef<boolean>(false);
 
-  const { isLoaded } = useGSAP((gsapModules) => {
+  const { isLoaded } = useGSAP(() => {
     if (!containerRef.current || hasAnimated.current) return;
 
     // Initialize page transition manager
@@ -37,7 +37,7 @@ const PageTransition: React.FC<PageTransitionProps> = ({
     }
 
     // Apply page enter animation
-    const enterAnimation = pageTransitionManager.pageEnter(
+    pageTransitionManager.pageEnter(
       containerRef.current,
       {
         duration,

@@ -40,14 +40,12 @@ import {
   Celebration,
   WorkspacePremium,
   MilitaryTech,
-  SportsKabaddi as SportsIcon,
 } from '@mui/icons-material';
 import { ThemeContext } from '../App';
 import Header from '../components/Header';
 import PageTransition from '../components/PageTransition';
 import ParticleField from '../components/ParticleField';
 import MorphingShape from '../components/MorphingShape';
-import AnimatedSection from '../components/AnimatedSection';
 
 // Type definitions
 interface Achievement {
@@ -520,13 +518,17 @@ const timelineData = [
   return new Date(dateB).getTime() - new Date(dateA).getTime();
 });
 
+interface ThemeContextType {
+  isDarkMode: boolean;
+  toggleTheme: () => void;
+}
+
 const ActivitiesHonors: React.FC = () => {
-  const { isDarkMode, toggleTheme } = useContext(ThemeContext);
+  const { isDarkMode, toggleTheme } = useContext(ThemeContext) as ThemeContextType;
   const theme = useTheme();
   
   const [selectedTab, setSelectedTab] = useState<TabValue>('all');
   const [isVisible, setIsVisible] = useState<boolean>(false);
-  const [showFloatingElements, setShowFloatingElements] = useState<boolean>(false);
 
   // Set document title and meta tags
   useEffect(() => {
@@ -541,11 +543,6 @@ const ActivitiesHonors: React.FC = () => {
   // Animation effects
   useEffect(() => {
     setIsVisible(true);
-    const floatingTimer = setTimeout(() => {
-      setShowFloatingElements(true);
-    }, 1000);
-    
-    return () => clearTimeout(floatingTimer);
   }, []);
 
   // Floating icons removed for modern clean design

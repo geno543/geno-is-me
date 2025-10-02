@@ -1,0 +1,49 @@
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:0.1" />
+      <stop offset="50%" style="stop-color:#764ba2;stop-opacity:0.05" />
+      <stop offset="100%" style="stop-color:#f093fb;stop-opacity:0.1" />
+    </linearGradient>
+    <pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse">
+      <path d="M 100 0 L 0 0 0 100" fill="none" stroke="#667eea" stroke-width="0.5" opacity="0.1"/>
+    </pattern>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1920" height="1080" fill="url(#bgGradient)"/>
+  
+  <!-- Grid Pattern -->
+  <rect width="1920" height="1080" fill="url(#grid)"/>
+  
+  <!-- Floating Geometric Shapes -->
+  <circle cx="200" cy="200" r="50" fill="#667eea" opacity="0.05"/>
+  <circle cx="1600" cy="300" r="80" fill="#764ba2" opacity="0.03"/>
+  <circle cx="400" cy="800" r="60" fill="#f093fb" opacity="0.04"/>
+  <circle cx="1400" cy="700" r="40" fill="#667eea" opacity="0.06"/>
+  
+  <!-- Hexagons -->
+  <polygon points="800,100 850,125 850,175 800,200 750,175 750,125" fill="#764ba2" opacity="0.03"/>
+  <polygon points="1200,400 1250,425 1250,475 1200,500 1150,475 1150,425" fill="#f093fb" opacity="0.04"/>
+  <polygon points="300,500 350,525 350,575 300,600 250,575 250,525" fill="#667eea" opacity="0.05"/>
+  
+  <!-- Triangles -->
+  <polygon points="1000,200 1050,250 950,250" fill="#764ba2" opacity="0.04"/>
+  <polygon points="600,600 650,650 550,650" fill="#f093fb" opacity="0.03"/>
+  <polygon points="1500,800 1550,850 1450,850" fill="#667eea" opacity="0.05"/>
+  
+  <!-- Code-like Elements -->
+  <rect x="100" y="400" width="3" height="30" fill="#667eea" opacity="0.1"/>
+  <rect x="110" y="400" width="3" height="30" fill="#667eea" opacity="0.1"/>
+  <rect x="1700" y="600" width="3" height="30" fill="#764ba2" opacity="0.1"/>
+  <rect x="1710" y="600" width="3" height="30" fill="#764ba2" opacity="0.1"/>
+  
+  <!-- Dots Pattern -->
+  <circle cx="500" cy="150" r="2" fill="#f093fb" opacity="0.2"/>
+  <circle cx="520" cy="150" r="2" fill="#f093fb" opacity="0.2"/>
+  <circle cx="540" cy="150" r="2" fill="#f093fb" opacity="0.2"/>
+  
+  <circle cx="1300" cy="900" r="2" fill="#667eea" opacity="0.2"/>
+  <circle cx="1320" cy="900" r="2" fill="#667eea" opacity="0.2"/>
+  <circle cx="1340" cy="900" r="2" fill="#667eea" opacity="0.2"/>
+</svg>

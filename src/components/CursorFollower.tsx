@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Box, Typography, useTheme, alpha } from '@mui/material';
+import { Box, useTheme } from '@mui/material';
 
 interface MousePosition {
   x: number;

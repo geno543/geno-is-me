@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { Box, useTheme, alpha } from '@mui/material';
+import { Box, useTheme } from '@mui/material';
 
 interface Particle {
   x: number;

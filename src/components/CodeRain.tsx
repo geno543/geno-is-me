@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Typography, useTheme, alpha } from '@mui/material';
+import { Box, useTheme } from '@mui/material';
 
 interface CodeRainProps {
   text: string;

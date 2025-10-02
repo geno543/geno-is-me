@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import {
   Container,
   Typography,
-  Grid,
   Card,
   CardContent,
   Avatar,
@@ -10,14 +9,10 @@ import {
   Button,
   Chip,
   useTheme,
-  useMediaQuery,
-  Fade,
-  Collapse,
-  IconButton,
   alpha,
+  Collapse,
 } from '@mui/material';
 import {
-  ExpandMore as ExpandMoreIcon,
   School as SchoolIcon,
   Code as CodeIcon,
   Group as GroupIcon,
@@ -192,9 +187,9 @@ const About: React.FC<AboutProps> = ({
         </Typography>
       </Box>
 
-      <Grid container spacing={4}>
+      <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", md: "2fr 1fr" }, gap: 4 }}>
         {/* Bio Section */}
-        <Grid item xs={12} md={8}>
+        <Box>
           <Card
             ref={bioCardRef}
             className="bio-card"
@@ -253,7 +248,7 @@ const About: React.FC<AboutProps> = ({
               </Typography>
 
               <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mb: 3 }}>
-                {interests.map((interest, index) => (
+                {interests.map((interest) => (
                   <Chip
                     key={interest}
                     label={interest}
@@ -306,10 +301,10 @@ const About: React.FC<AboutProps> = ({
               </Collapse>
             </CardContent>
           </Card>
-        </Grid>
+        </Box>
 
         {/* Achievements Section */}
-        <Grid item xs={12} md={4}>
+        <Box>
           <Box className="achievements-container">
             <Typography
               variant="h5"
@@ -318,9 +313,9 @@ const About: React.FC<AboutProps> = ({
             >
               Beyond the Code
             </Typography>
-            <Grid container spacing={2}>
+            <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
               {achievements.map((achievement, index) => (
-                <Grid item xs={12} key={index}>
+                <Box key={index}>
                   <Card
                     className="achievement-card"
                     data-observe
@@ -366,14 +361,14 @@ const About: React.FC<AboutProps> = ({
                       </Typography>
                     </CardContent>
                   </Card>
-                </Grid>
+                </Box>
               ))}
-            </Grid>
+            </Box>
           </Box>
-        </Grid>
+        </Box>
 
         {/* Timeline Section */}
-        <Grid item xs={12}>
+        <Box>
           <Box className="timeline-container" sx={{ mt: 4 }}>
             <Typography
               variant="h5"
@@ -384,9 +379,9 @@ const About: React.FC<AboutProps> = ({
               My Journey
             </Typography>
             
-            <Grid container spacing={3}>
+            <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "repeat(2, 1fr)", md: "repeat(4, 1fr)" }, gap: 3 }}>
               {timeline.map((item, index) => (
-                <Grid item xs={12} sm={6} md={3} key={index}>
+                <Box key={index}>
                   <Card
                     className="timeline-item"
                     data-observe
@@ -452,12 +447,12 @@ const About: React.FC<AboutProps> = ({
                       </Typography>
                     </CardContent>
                   </Card>
-                </Grid>
+                </Box>
               ))}
-            </Grid>
+            </Box>
           </Box>
-        </Grid>
-      </Grid>
+        </Box>
+      </Box>
     </Container>
   );
 };

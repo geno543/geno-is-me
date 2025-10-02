@@ -29,7 +29,7 @@ interface HideOnScrollProps {
 interface SocialLink {
   name: string;
   url: string;
-  icon: React.ReactNode;
+  icon: React.ComponentType<any>;
 }
 
 interface HeaderProps {

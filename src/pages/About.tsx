@@ -44,7 +44,6 @@ import PageTransition from '../components/PageTransition';
 import ParticleField from '../components/ParticleField';
 import MorphingShape from '../components/MorphingShape';
 import AnimatedSection from '../components/AnimatedSection';
-import ImageReveal from '../components/ImageReveal';
 
 interface ChatMessage {
   text: string;
@@ -52,12 +51,16 @@ interface ChatMessage {
   timestamp: Date;
 }
 
+interface ThemeContextType {
+  isDarkMode: boolean;
+  toggleTheme: () => void;
+}
+
 const About: React.FC = () => {
-  const { isDarkMode, toggleTheme } = useContext(ThemeContext);
+  const { isDarkMode, toggleTheme } = useContext(ThemeContext) as ThemeContextType;
   const theme = useTheme();
   
   const [isVisible, setIsVisible] = useState(false);
-  const [showFloatingElements, setShowFloatingElements] = useState(false);
   const [chatOpen, setChatOpen] = useState(false);
   const [chatMessages, setChatMessages] = useState<ChatMessage[]>([
     { text: "Hey! I'm Geno's AI assistant. Ask me anything about him!", sender: 'bot', timestamp: new Date() }
@@ -70,9 +73,6 @@ const About: React.FC = () => {
   useEffect(() => {
     document.title = 'About Me - Geno | Mohamed Ramadan Portfolio';
     setIsVisible(true);
-    
-    const timer = setTimeout(() => setShowFloatingElements(true), 1000);
-    return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {

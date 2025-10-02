@@ -11,7 +11,7 @@ import {
   Divider,
   Button,
   useTheme,
-  useMediaQuery,
+
 } from '@mui/material';
 import {
   Close as CloseIcon,
@@ -332,7 +332,7 @@ const MobileDrawer: React.FC<MobileDrawerProps> = ({
 
       {/* Navigation Items */}
       <List sx={{ pt: 1 }}>
-        {(navItems || []).map((item, index) => {
+        {(navItems || []).map((item) => {
           const isActive = checkActiveRoute(item);
           
           return (
