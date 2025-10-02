@@ -1,7 +1,15 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // Optimize for production
+  experimental: {
+    optimizePackageImports: ['@mui/material', '@mui/icons-material'],
+  },
+  
+  // Image optimization
+  images: {
+    domains: ['localhost'],
+  },
 };
 
 export default nextConfig;
