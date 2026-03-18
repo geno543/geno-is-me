@@ -216,13 +216,13 @@ function App() {
 
   return (
     <div ref={pageRef} className="min-h-screen bg-transparent text-ink">
-      <div className="mx-auto max-w-[760px] px-6 pb-20 pt-5 sm:px-8">
-        <header className="mb-20 border-b border-line pb-4">
-          <nav data-hero-nav className="flex items-center justify-between font-mono text-sm text-muted">
+      <div className="mx-auto w-full max-w-[980px] px-4 pb-16 pt-4 sm:px-6 sm:pb-20 sm:pt-5">
+        <header className="mb-12 border-b border-line pb-4 sm:mb-20">
+          <nav data-hero-nav className="flex items-center justify-between font-mono text-xs text-muted sm:text-sm">
             <a href="/" className="transition-colors hover:text-ink">
               Geno
             </a>
-            <div className="flex items-center gap-6">
+            <div className="flex items-center gap-3 sm:gap-6">
               <a href={isHomePage ? '#work' : '/#work'} className="transition-colors hover:text-ink">
                 Work
               </a>
@@ -239,13 +239,13 @@ function App() {
         {isProjectsPage ? (
           <main id="top">
             <section data-reveal>
-              <h1 data-hero-title className="max-w-2xl font-serif text-5xl leading-[1.05] text-title sm:text-6xl">
+              <h1 data-hero-title className="max-w-2xl font-serif text-4xl leading-[1.05] text-title sm:text-6xl">
                 Projects
               </h1>
-              <p data-hero-body className="mt-6 max-w-2xl font-mono text-sm text-muted">
+              <p data-hero-body className="mt-5 max-w-2xl font-mono text-xs text-muted sm:mt-6 sm:text-sm">
                 Selected products and initiatives I built, led, or launched.
               </p>
-              <p data-hero-body className="mt-3 max-w-2xl font-mono text-sm text-muted">
+              <p data-hero-body className="mt-2 max-w-2xl font-mono text-xs text-muted sm:mt-3 sm:text-sm">
                 These are some projects. If you need more, go to my{' '}
                 <a href="https://github.com/geno543" target="_blank" rel="noreferrer" className="text-copy transition-colors hover:text-title">
                   GitHub
@@ -254,7 +254,7 @@ function App() {
               </p>
             </section>
 
-            <section className="mt-12" data-reveal>
+            <section className="mt-10 sm:mt-12" data-reveal>
               <div className="grid gap-4 md:grid-cols-2">
                 {projects.map((item, index) => (
                   <article
@@ -265,7 +265,7 @@ function App() {
                       <span>{`0${index + 1}`}</span>
                       <span>{item.period}</span>
                     </div>
-                    <h3 className="mt-4 font-serif text-3xl leading-tight text-title">{item.title}</h3>
+                    <h3 className="mt-4 font-serif text-2xl leading-tight text-title sm:text-3xl">{item.title}</h3>
                     <p className="mt-1 font-mono text-sm text-muted">{item.subtitle}</p>
                     <p className="mt-4 text-base leading-relaxed text-copy">{item.detail}</p>
                     {item.href ? (
@@ -288,24 +288,24 @@ function App() {
             <section data-reveal>
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <h1 data-hero-title className="max-w-2xl font-serif text-5xl leading-[1.05] text-title sm:text-6xl">
+                  <h1 data-hero-title className="max-w-2xl font-serif text-4xl leading-[1.05] text-title sm:text-6xl">
                     Gallery
                   </h1>
-                  <p data-hero-body className="mt-6 max-w-2xl font-mono text-sm text-muted">
+                  <p data-hero-body className="mt-5 max-w-2xl font-mono text-xs text-muted sm:mt-6 sm:text-sm">
                     Real moments from the build. Click any image to open it in a larger view.
                   </p>
                 </div>
                 <img
                   src={`${clydeBase}clyde-2.png`}
                   alt="Clyde McBride"
-                  className="h-24 w-auto object-contain sm:h-28"
+                  className="h-20 w-auto object-contain sm:h-28"
                   loading="lazy"
                 />
               </div>
             </section>
 
-            <section className="mt-10" data-reveal>
-              <div className="grid gap-5 md:auto-rows-[280px] md:grid-cols-6">
+            <section className="mt-8 sm:mt-10" data-reveal>
+              <div className="grid gap-4 sm:gap-5 md:auto-rows-[260px] md:grid-cols-6">
                 {galleryItems.map((item) => (
                   <button
                     key={item.title}
@@ -313,7 +313,7 @@ function App() {
                     onClick={() => setActiveGalleryItem(item)}
                     className={`group overflow-hidden rounded-xl border border-line/90 bg-[#0a1b15]/70 text-left transition-all duration-300 hover:-translate-y-1 hover:border-copy/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-copy ${item.layoutClass}`}
                   >
-                    <div className="h-[72%] overflow-hidden">
+                    <div className="h-[70%] overflow-hidden">
                       <img
                         src={item.image}
                         alt={item.title}
@@ -321,9 +321,9 @@ function App() {
                         loading="lazy"
                       />
                     </div>
-                    <div className="p-4">
-                      <h3 className="font-serif text-2xl leading-tight text-title">{item.title}</h3>
-                      <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-copy">{item.caption}</p>
+                    <div className="p-3 sm:p-4">
+                      <h3 className="font-serif text-xl leading-tight text-title sm:text-2xl">{item.title}</h3>
+                      <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-copy sm:mt-2 sm:text-sm">{item.caption}</p>
                     </div>
                   </button>
                 ))}
@@ -332,37 +332,46 @@ function App() {
           </main>
         ) : (
           <main id="top">
-            <section data-reveal>
-              <h1 data-hero-title className="max-w-2xl font-serif text-5xl leading-[1.05] text-title sm:text-6xl">
-                Mohamed Ramadan
-              </h1>
-              <p data-hero-body className="mt-6 font-mono text-base text-muted">
-                AI Engineer, Builder, Student - Cairo, Egypt
-              </p>
-              <p data-hero-body className="mt-10 max-w-2xl font-serif text-4xl leading-tight text-copy sm:text-[2.55rem]">
-                Building useful AI products, education systems, and technical communities that create measurable outcomes.
-              </p>
-              <div data-hero-body className="mt-8 flex flex-wrap items-center gap-3 font-mono text-sm text-muted">
-                <a href="mailto:Mohamedr7825@gmail.com" className={actionLinkClass}>
-                  email
-                </a>
-                <a href="https://github.com/geno543" target="_blank" rel="noreferrer" className={actionLinkClass}>
-                  github
-                </a>
-                <a href={cvUrl} target="_blank" rel="noreferrer" className={actionLinkClass}>
-                  Resume / CV
-                </a>
+            <section data-reveal className="lg:flex lg:items-start lg:justify-between lg:gap-8">
+              <div className="max-w-3xl">
+                <h1 data-hero-title className="max-w-2xl font-serif text-4xl leading-[1.05] text-title sm:text-6xl">
+                  Mohamed Ramadan
+                </h1>
+                <p data-hero-body className="mt-5 font-mono text-sm text-muted sm:mt-6 sm:text-base">
+                  AI Engineer, Builder, Student - Cairo, Egypt
+                </p>
+                <p data-hero-body className="mt-8 max-w-2xl font-serif text-[2rem] leading-tight text-copy sm:mt-10 sm:text-[2.55rem]">
+                  Building useful AI products, education systems, and technical communities that create measurable outcomes.
+                </p>
+                <div data-hero-body className="mt-7 flex flex-wrap items-center gap-3 font-mono text-sm text-muted sm:mt-8">
+                  <a href="mailto:Mohamedr7825@gmail.com" className={actionLinkClass}>
+                    email
+                  </a>
+                  <a href="https://github.com/geno543" target="_blank" rel="noreferrer" className={actionLinkClass}>
+                    github
+                  </a>
+                  <a href={cvUrl} target="_blank" rel="noreferrer" className={actionLinkClass}>
+                    Resume / CV
+                  </a>
+                </div>
               </div>
+              <img
+                data-hero-body
+                src={`${clydeBase}clyde-1.png`}
+                alt="Clyde McBride"
+                className="mx-auto mt-8 h-28 w-auto object-contain sm:h-40 lg:mt-0 lg:h-48"
+                loading="lazy"
+              />
             </section>
 
-            <section id="work" className="mt-20" data-reveal>
+            <section id="work" className="mt-14 sm:mt-20" data-reveal>
               <h2 className="font-mono text-xs uppercase tracking-[0.22em] text-muted">Experience</h2>
               <div className="mt-4 border-t border-line">
                 {experience.map((item) => (
                   <article key={item.title} className="border-b border-line py-5">
                     <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between sm:gap-8">
                       <div>
-                        <h3 className="font-serif text-3xl text-title">{item.title}</h3>
+                        <h3 className="font-serif text-2xl text-title sm:text-3xl">{item.title}</h3>
                         <p className="mt-1 font-mono text-sm text-muted">@ {item.subtitle}</p>
                         <p className="mt-3 max-w-xl text-base leading-relaxed text-copy">{item.detail}</p>
                       </div>
@@ -373,7 +382,7 @@ function App() {
               </div>
             </section>
 
-            <section className="mt-16" data-reveal>
+            <section className="mt-12 sm:mt-16" data-reveal>
               <h2 className="font-mono text-xs uppercase tracking-[0.22em] text-muted">Highlights</h2>
               <ul className="mt-4 space-y-3 border-t border-line pt-5 text-base leading-relaxed text-copy">
                 {highlights.map((item) => (
