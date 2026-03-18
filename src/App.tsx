@@ -157,12 +157,6 @@ function App() {
       layoutClass: 'md:col-span-4 md:row-span-1 md:translate-y-2',
     },
     {
-      title: 'Pizza Night 2',
-      caption: 'Another candid team moment from our pizza night.',
-      image: `${galleryBase}pizza-night-2.jpg`,
-      layoutClass: 'md:col-span-2 md:row-span-1',
-    },
-    {
       title: 'Me at 5 Years Old',
       caption: 'A personal childhood memory.',
       image: `${galleryBase}me-age-5.jpg`,
@@ -245,29 +239,19 @@ function App() {
         {isProjectsPage ? (
           <main id="top">
             <section data-reveal>
-              <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: '1rem' }}>
-                <div>
-                  <h1 data-hero-title className="max-w-2xl font-serif text-5xl leading-[1.05] text-title sm:text-6xl">
-                    Projects
-                  </h1>
-                  <p data-hero-body className="mt-6 max-w-2xl font-mono text-sm text-muted">
-                    Selected products and initiatives I built, led, or launched.
-                  </p>
-                  <p data-hero-body className="mt-3 max-w-2xl font-mono text-sm text-muted">
-                    These are some projects. If you need more, go to my{' '}
-                    <a href="https://github.com/geno543" target="_blank" rel="noreferrer" className="text-copy transition-colors hover:text-title">
-                      GitHub
-                    </a>
-                    .
-                  </p>
-                </div>
-                <img
-                  src={`${clydeBase}clyde-2.png`}
-                  alt="Clyde McBride"
-                  style={{ height: '150px', width: 'auto', objectFit: 'contain', objectPosition: 'bottom', opacity: 0.88, transform: 'scaleX(-1)', flexShrink: 0, pointerEvents: 'none' }}
-                  loading="lazy"
-                />
-              </div>
+              <h1 data-hero-title className="max-w-2xl font-serif text-5xl leading-[1.05] text-title sm:text-6xl">
+                Projects
+              </h1>
+              <p data-hero-body className="mt-6 max-w-2xl font-mono text-sm text-muted">
+                Selected products and initiatives I built, led, or launched.
+              </p>
+              <p data-hero-body className="mt-3 max-w-2xl font-mono text-sm text-muted">
+                These are some projects. If you need more, go to my{' '}
+                <a href="https://github.com/geno543" target="_blank" rel="noreferrer" className="text-copy transition-colors hover:text-title">
+                  GitHub
+                </a>
+                .
+              </p>
             </section>
 
             <section className="mt-12" data-reveal>
@@ -312,7 +296,7 @@ function App() {
                   </p>
                 </div>
                 <img
-                  src={`${clydeBase}clyde-3.png`}
+                  src={`${clydeBase}clyde-2.png`}
                   alt="Clyde McBride"
                   className="h-24 w-auto object-contain sm:h-28"
                   loading="lazy"
@@ -366,19 +350,8 @@ function App() {
                   github
                 </a>
                 <a href={cvUrl} target="_blank" rel="noreferrer" className={actionLinkClass}>
-                  portfolio
+                  Resume / CV
                 </a>
-              </div>
-            </section>
-
-            <section className="mt-4" aria-label="Clyde accent hero" style={{ position: 'relative', height: '0' }}>
-              <div style={{ position: 'absolute', right: '-24px', bottom: '-56px', zIndex: 0, pointerEvents: 'none' }}>
-                <img
-                  src={`${clydeBase}clyde-1.png`}
-                  alt="Clyde McBride"
-                  style={{ height: '200px', width: 'auto', objectFit: 'contain', objectPosition: 'bottom', opacity: 0.92 }}
-                  loading="lazy"
-                />
               </div>
             </section>
 
@@ -416,7 +389,7 @@ function App() {
             <p className="font-mono text-muted">Geno</p>
             <div className="flex items-center gap-5 font-mono">
               <a href={cvUrl} target="_blank" rel="noreferrer" className="transition-colors hover:text-title">
-                portfolio
+                Resume / CV
               </a>
               <a href="mailto:Mohamedr7825@gmail.com" className="transition-colors hover:text-title">
                 email
