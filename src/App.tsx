@@ -21,6 +21,8 @@ function App() {
   const pageRef = useRef<HTMLDivElement>(null)
   const [activeGalleryItem, setActiveGalleryItem] = useState<GalleryItem | null>(null)
   const cvUrl = '/My__CV%20(3)%20(1).pdf'
+  const galleryBase = `${import.meta.env.BASE_URL}gallery/`
+  const clydeBase = `${import.meta.env.BASE_URL}clyde/`
   const actionLinkClass =
     'inline-flex items-center rounded-md border border-line/90 bg-paper/40 px-3 py-1.5 transition-all duration-200 hover:-translate-y-0.5 hover:border-copy hover:bg-[#10241c] hover:text-title focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2f5945]'
 
@@ -121,67 +123,67 @@ function App() {
     {
       title: 'First Hack Club Hackathon',
       caption: 'My first Hack Club hackathon experience and one of the moments that pushed me deeper into building.',
-      image: '/gallery/counterspell%20the%20first%20hack%20club%20hackation%20i%20participate%20in%20it.webp',
+      image: `${galleryBase}counterspell.webp`,
       layoutClass: 'md:col-span-4 md:row-span-2',
     },
     {
       title: 'First ECPC Participation',
       caption: 'My first ECPC participation with my friend Yaseen.',
-      image: '/gallery/First%20ECPC%20particpation%20with%20my%20friend%20yaseen.jpeg',
+      image: `${galleryBase}ecpc-first.jpeg`,
       layoutClass: 'md:col-span-2 md:row-span-1 md:translate-y-6',
     },
     {
       title: 'First ML Session I Taught',
       caption: 'A milestone where I taught my first machine learning session.',
-      image: '/gallery/First%20ML%20session%20i%20teach.jpeg',
+      image: `${galleryBase}ml-session.jpeg`,
       layoutClass: 'md:col-span-3 md:row-span-2 md:-translate-y-2',
     },
     {
       title: 'EOCS Organizing',
       caption: "The image of me with the participants and the team at the end of Egypt's Computational Science Olympiad.",
-      image: '/gallery/Me%20in%20EOCS%20organize.jpg',
+      image: `${galleryBase}eocs-organize.jpg`,
       layoutClass: 'md:col-span-3 md:row-span-1 md:translate-y-4',
     },
     {
       title: 'NASA Space Apps Winner',
       caption: 'Winning NASA Space Apps Cairo and taking first place.',
-      image: '/gallery/me%20when%20i%20win%20the%20nasa%20space%20apps%20cairo%20and%20get%20the%20first%20place.png',
+      image: `${galleryBase}nasa-winner.png`,
       layoutClass: 'md:col-span-2 md:row-span-1 md:-translate-y-5',
     },
     {
       title: 'Pizza Party',
       caption: 'One of my favorite community memories with the team.',
-      image: '/gallery/Pizza%20party.jpeg',
+      image: `${galleryBase}pizza-party.jpeg`,
       layoutClass: 'md:col-span-4 md:row-span-1 md:translate-y-2',
     },
     {
       title: 'Pizza Night 2',
       caption: 'Another candid team moment from our pizza night.',
-      image: '/gallery/pizza2.jpg',
+      image: `${galleryBase}pizza-night-2.jpg`,
       layoutClass: 'md:col-span-2 md:row-span-1',
     },
     {
       title: 'Me at 5 Years Old',
       caption: 'A personal childhood memory.',
-      image: '/gallery/random%20image%20for%20me%20at%205%20years%20old.jpg',
+      image: `${galleryBase}me-age-5.jpg`,
       layoutClass: 'md:col-span-2 md:row-span-1',
     },
     {
       title: 'My Cat',
       caption: 'A random but important part of life: my cat.',
-      image: '/gallery/random%20image%20for%20my%20cat.jpg',
+      image: `${galleryBase}my-cat.jpg`,
       layoutClass: 'md:col-span-2 md:row-span-1',
     },
     {
       title: 'Scrapyard Hackathon',
       caption: 'Scrapyard, the first hackathon I organized with 180 participants.',
-      image: '/gallery/Scrapyard%20the%20first%20hackation%20organized%20with%20180%20participent.jpg',
+      image: `${galleryBase}scrapyard-180.jpg`,
       layoutClass: 'md:col-span-3 md:row-span-1',
     },
     {
       title: 'Scrapyard Team Photo',
       caption: 'Another Scrapyard memory with the full group.',
-      image: '/gallery/scrapyard1.jpg',
+      image: `${galleryBase}scrapyard-team.jpg`,
       layoutClass: 'md:col-span-3 md:row-span-1',
     },
   ]
@@ -243,19 +245,29 @@ function App() {
         {isProjectsPage ? (
           <main id="top">
             <section data-reveal>
-              <h1 data-hero-title className="max-w-2xl font-serif text-5xl leading-[1.05] text-title sm:text-6xl">
-                Projects
-              </h1>
-              <p data-hero-body className="mt-6 max-w-2xl font-mono text-sm text-muted">
-                Selected products and initiatives I built, led, or launched.
-              </p>
-              <p data-hero-body className="mt-3 max-w-2xl font-mono text-sm text-muted">
-                These are some projects. If you need more, go to my{' '}
-                <a href="https://github.com/geno543" target="_blank" rel="noreferrer" className="text-copy transition-colors hover:text-title">
-                  GitHub
-                </a>
-                .
-              </p>
+              <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: '1rem' }}>
+                <div>
+                  <h1 data-hero-title className="max-w-2xl font-serif text-5xl leading-[1.05] text-title sm:text-6xl">
+                    Projects
+                  </h1>
+                  <p data-hero-body className="mt-6 max-w-2xl font-mono text-sm text-muted">
+                    Selected products and initiatives I built, led, or launched.
+                  </p>
+                  <p data-hero-body className="mt-3 max-w-2xl font-mono text-sm text-muted">
+                    These are some projects. If you need more, go to my{' '}
+                    <a href="https://github.com/geno543" target="_blank" rel="noreferrer" className="text-copy transition-colors hover:text-title">
+                      GitHub
+                    </a>
+                    .
+                  </p>
+                </div>
+                <img
+                  src={`${clydeBase}clyde-2.png`}
+                  alt="Clyde McBride"
+                  style={{ height: '150px', width: 'auto', objectFit: 'contain', objectPosition: 'bottom', opacity: 0.88, transform: 'scaleX(-1)', flexShrink: 0, pointerEvents: 'none' }}
+                  loading="lazy"
+                />
+              </div>
             </section>
 
             <section className="mt-12" data-reveal>
@@ -290,12 +302,22 @@ function App() {
         ) : isGalleryPage ? (
           <main id="top">
             <section data-reveal>
-              <h1 data-hero-title className="max-w-2xl font-serif text-5xl leading-[1.05] text-title sm:text-6xl">
-                Gallery
-              </h1>
-              <p data-hero-body className="mt-6 max-w-2xl font-mono text-sm text-muted">
-                Real moments from the build. Click any image to open it in a larger view.
-              </p>
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <h1 data-hero-title className="max-w-2xl font-serif text-5xl leading-[1.05] text-title sm:text-6xl">
+                    Gallery
+                  </h1>
+                  <p data-hero-body className="mt-6 max-w-2xl font-mono text-sm text-muted">
+                    Real moments from the build. Click any image to open it in a larger view.
+                  </p>
+                </div>
+                <img
+                  src={`${clydeBase}clyde-3.png`}
+                  alt="Clyde McBride"
+                  className="h-24 w-auto object-contain sm:h-28"
+                  loading="lazy"
+                />
+              </div>
             </section>
 
             <section className="mt-10" data-reveal>
@@ -346,6 +368,17 @@ function App() {
                 <a href={cvUrl} target="_blank" rel="noreferrer" className={actionLinkClass}>
                   portfolio
                 </a>
+              </div>
+            </section>
+
+            <section className="mt-4" aria-label="Clyde accent hero" style={{ position: 'relative', height: '0' }}>
+              <div style={{ position: 'absolute', right: '-24px', bottom: '-56px', zIndex: 0, pointerEvents: 'none' }}>
+                <img
+                  src={`${clydeBase}clyde-1.png`}
+                  alt="Clyde McBride"
+                  style={{ height: '200px', width: 'auto', objectFit: 'contain', objectPosition: 'bottom', opacity: 0.92 }}
+                  loading="lazy"
+                />
               </div>
             </section>
 
