@@ -15,10 +15,26 @@
   body {
     @apply bg-paper font-sans text-ink antialiased;
     margin: 0;
+    position: relative;
     background-image:
-      radial-gradient(70% 55% at 85% 10%, rgba(33, 85, 62, 0.3), transparent 60%),
-      radial-gradient(45% 35% at 10% 30%, rgba(18, 56, 40, 0.24), transparent 75%);
+      radial-gradient(70% 55% at 85% 10%, rgba(33, 85, 62, 0.28), transparent 60%),
+      radial-gradient(45% 35% at 10% 30%, rgba(18, 56, 40, 0.22), transparent 75%),
+      linear-gradient(180deg, #050b13 0%, #07130f 38%, #07120f 100%);
     background-attachment: fixed;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.55;
+    background-image: url('/topography.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    animation: contourFloat 22s ease-in-out infinite alternate;
   }
 
   * {
@@ -28,5 +44,15 @@
   a {
     color: inherit;
     text-decoration: none;
+  }
+}
+
+@keyframes contourFloat {
+  0% {
+    transform: scale(1) translateY(0);
+  }
+
+  100% {
+    transform: scale(1.04) translateY(-1.3%);
   }
 }

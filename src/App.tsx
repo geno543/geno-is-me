@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef } from 'react'
+﻿import { useLayoutEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -13,13 +13,13 @@ type Item = {
 type GalleryItem = {
   title: string
   caption: string
-  status: string
+  image: string
   layoutClass: string
-  toneClass: string
 }
 
 function App() {
   const pageRef = useRef<HTMLDivElement>(null)
+  const [activeGalleryItem, setActiveGalleryItem] = useState<GalleryItem | null>(null)
   const cvUrl = '/My__CV%20(3)%20(1).pdf'
   const actionLinkClass =
     'inline-flex items-center rounded-md border border-line/90 bg-paper/40 px-3 py-1.5 transition-all duration-200 hover:-translate-y-0.5 hover:border-copy hover:bg-[#10241c] hover:text-title focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2f5945]'
@@ -71,59 +71,118 @@ function App() {
       subtitle: 'Arabic AI Learning Program',
       period: 'Education',
       detail: 'A practical training program introducing learners to modern AI systems and autonomous agent workflows.',
-      href: 'https://github.com/geno543',
+      href: 'https://telqai.stemcsclub.org/',
     },
     {
       title: 'EOCS',
       subtitle: 'Egyptian Olympiad in Computational Science',
       period: 'Initiative',
       detail: 'A national competition and curriculum ecosystem for students interested in computational and algorithmic thinking.',
-      href: 'https://github.com/geno543',
+      href: 'https://www.eocs.net/',
+    },
+    {
+      title: 'CALM',
+      subtitle: 'TypeScript Web Product',
+      period: 'Production',
+      detail: 'A shipped web experience built with TypeScript and deployed publicly with iterative product updates.',
+      href: 'https://github.com/geno543/CALM',
+    },
+    {
+      title: 'Genatica',
+      subtitle: 'AI/Software Project',
+      period: 'R&D',
+      detail: 'A TypeScript-based technical project from your GitHub portfolio focused on applied implementation.',
+      href: 'https://github.com/geno543/Genatica',
+    },
+    {
+      title: 'ENCOT',
+      subtitle: 'Python Engineering Project',
+      period: 'Research',
+      detail: 'A Python project in your repository set demonstrating computational and engineering workflows.',
+      href: 'https://github.com/geno543/ENCOT',
+    },
+    {
+      title: 'Phiga Competition',
+      subtitle: 'Competition Platform',
+      period: 'Platform',
+      detail: 'A production web platform for competition activities and participant-facing information.',
+      href: 'https://github.com/geno543/Phiga-competition',
+    },
+    {
+      title: 'Tholasy',
+      subtitle: 'Educational Product',
+      period: 'Venture',
+      detail: 'A JavaScript-based educational product project with public deployment and active iteration.',
+      href: 'https://github.com/geno543/tholasy',
     },
   ]
 
   const galleryItems: GalleryItem[] = [
     {
-      title: 'AI Product Build',
-      caption: 'Hero shot placeholder for your AI product workspace and prototype.',
-      status: 'image pending',
+      title: 'First Hack Club Hackathon',
+      caption: 'My first Hack Club hackathon experience and one of the moments that pushed me deeper into building.',
+      image: '/gallery/counterspell%20the%20first%20hack%20club%20hackation%20i%20participate%20in%20it.webp',
       layoutClass: 'md:col-span-4 md:row-span-2',
-      toneClass: 'bg-[#0d251d]/70',
     },
     {
-      title: 'Hardware + Robotics',
-      caption: 'Placeholder for robotics setup, boards, and build process snapshots.',
-      status: 'image pending',
+      title: 'First ECPC Participation',
+      caption: 'My first ECPC participation with my friend Yaseen.',
+      image: '/gallery/First%20ECPC%20particpation%20with%20my%20friend%20yaseen.jpeg',
       layoutClass: 'md:col-span-2 md:row-span-1 md:translate-y-6',
-      toneClass: 'bg-[#102c22]/65',
     },
     {
-      title: 'Hackathon Moments',
-      caption: 'Placeholder for team collaboration and shipping moments on event day.',
-      status: 'image pending',
+      title: 'First ML Session I Taught',
+      caption: 'A milestone where I taught my first machine learning session.',
+      image: '/gallery/First%20ML%20session%20i%20teach.jpeg',
       layoutClass: 'md:col-span-3 md:row-span-2 md:-translate-y-2',
-      toneClass: 'bg-[#0b2019]/70',
     },
     {
-      title: 'Stage + Talks',
-      caption: 'Placeholder for conference demos, talks, and award presentations.',
-      status: 'image pending',
+      title: 'EOCS Organizing',
+      caption: "The image of me with the participants and the team at the end of Egypt's Computational Science Olympiad.",
+      image: '/gallery/Me%20in%20EOCS%20organize.jpg',
       layoutClass: 'md:col-span-3 md:row-span-1 md:translate-y-4',
-      toneClass: 'bg-[#123126]/60',
     },
     {
-      title: 'Lab Notes',
-      caption: 'Placeholder for whiteboards, architecture sketches, and model iteration snapshots.',
-      status: 'image pending',
+      title: 'NASA Space Apps Winner',
+      caption: 'Winning NASA Space Apps Cairo and taking first place.',
+      image: '/gallery/me%20when%20i%20win%20the%20nasa%20space%20apps%20cairo%20and%20get%20the%20first%20place.png',
       layoutClass: 'md:col-span-2 md:row-span-1 md:-translate-y-5',
-      toneClass: 'bg-[#0f2a20]/65',
     },
     {
-      title: 'Community Impact',
-      caption: 'Placeholder for mentorship sessions, workshops, and student project showcases.',
-      status: 'image pending',
+      title: 'Pizza Party',
+      caption: 'One of my favorite community memories with the team.',
+      image: '/gallery/Pizza%20party.jpeg',
       layoutClass: 'md:col-span-4 md:row-span-1 md:translate-y-2',
-      toneClass: 'bg-[#0b231b]/70',
+    },
+    {
+      title: 'Pizza Night 2',
+      caption: 'Another candid team moment from our pizza night.',
+      image: '/gallery/pizza2.jpg',
+      layoutClass: 'md:col-span-2 md:row-span-1',
+    },
+    {
+      title: 'Me at 5 Years Old',
+      caption: 'A personal childhood memory.',
+      image: '/gallery/random%20image%20for%20me%20at%205%20years%20old.jpg',
+      layoutClass: 'md:col-span-2 md:row-span-1',
+    },
+    {
+      title: 'My Cat',
+      caption: 'A random but important part of life: my cat.',
+      image: '/gallery/random%20image%20for%20my%20cat.jpg',
+      layoutClass: 'md:col-span-2 md:row-span-1',
+    },
+    {
+      title: 'Scrapyard Hackathon',
+      caption: 'Scrapyard, the first hackathon I organized with 180 participants.',
+      image: '/gallery/Scrapyard%20the%20first%20hackation%20organized%20with%20180%20participent.jpg',
+      layoutClass: 'md:col-span-3 md:row-span-1',
+    },
+    {
+      title: 'Scrapyard Team Photo',
+      caption: 'Another Scrapyard memory with the full group.',
+      image: '/gallery/scrapyard1.jpg',
+      layoutClass: 'md:col-span-3 md:row-span-1',
     },
   ]
 
@@ -160,7 +219,7 @@ function App() {
   }, [])
 
   return (
-    <div ref={pageRef} className="min-h-screen bg-paper text-ink">
+    <div ref={pageRef} className="min-h-screen bg-transparent text-ink">
       <div className="mx-auto max-w-[760px] px-6 pb-20 pt-5 sm:px-8">
         <header className="mb-20 border-b border-line pb-4">
           <nav data-hero-nav className="flex items-center justify-between font-mono text-sm text-muted">
@@ -189,6 +248,13 @@ function App() {
               </h1>
               <p data-hero-body className="mt-6 max-w-2xl font-mono text-sm text-muted">
                 Selected products and initiatives I built, led, or launched.
+              </p>
+              <p data-hero-body className="mt-3 max-w-2xl font-mono text-sm text-muted">
+                These are some projects. If you need more, go to my{' '}
+                <a href="https://github.com/geno543" target="_blank" rel="noreferrer" className="text-copy transition-colors hover:text-title">
+                  GitHub
+                </a>
+                .
               </p>
             </section>
 
@@ -228,30 +294,33 @@ function App() {
                 Gallery
               </h1>
               <p data-hero-body className="mt-6 max-w-2xl font-mono text-sm text-muted">
-                A creative wall for your build journey. Share product shots, prototypes, event moments, and behind-the-scenes visuals.
+                Real moments from the build. Click any image to open it in a larger view.
               </p>
             </section>
 
             <section className="mt-10" data-reveal>
-              <div className="relative">
-                <span className="pointer-events-none absolute left-1/2 top-4 hidden h-[calc(100%-2rem)] w-px -translate-x-1/2 bg-gradient-to-b from-copy/40 via-copy/20 to-transparent md:block" />
-                <div className="grid gap-4 md:auto-rows-[150px] md:grid-cols-6 md:gap-5">
-                  {galleryItems.map((item) => (
-                    <article
-                      key={item.title}
-                      className={`group relative overflow-hidden rounded-md border border-line/90 p-4 transition-all duration-300 hover:-translate-y-1 hover:border-copy/70 ${item.layoutClass} ${item.toneClass}`}
-                    >
-                      <span className="absolute right-4 top-4 h-[9px] w-[9px] rounded-full border border-copy/80 bg-paper shadow-[0_0_10px_rgba(136,169,154,0.4)]" />
-                      <div className="flex h-full flex-col justify-between">
-                        <div>
-                          <p className="font-mono text-[11px] uppercase tracking-[0.12em] text-muted">{item.status}</p>
-                          <h3 className="mt-2 font-serif text-2xl leading-tight text-title">{item.title}</h3>
-                        </div>
-                        <p className="max-w-[36ch] text-sm leading-relaxed text-copy">{item.caption}</p>
-                      </div>
-                    </article>
-                  ))}
-                </div>
+              <div className="grid gap-5 md:auto-rows-[280px] md:grid-cols-6">
+                {galleryItems.map((item) => (
+                  <button
+                    key={item.title}
+                    type="button"
+                    onClick={() => setActiveGalleryItem(item)}
+                    className={`group overflow-hidden rounded-xl border border-line/90 bg-[#0a1b15]/70 text-left transition-all duration-300 hover:-translate-y-1 hover:border-copy/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-copy ${item.layoutClass}`}
+                  >
+                    <div className="h-[72%] overflow-hidden">
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div className="p-4">
+                      <h3 className="font-serif text-2xl leading-tight text-title">{item.title}</h3>
+                      <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-copy">{item.caption}</p>
+                    </div>
+                  </button>
+                ))}
               </div>
             </section>
           </main>
@@ -326,6 +395,37 @@ function App() {
           </div>
         </footer>
       </div>
+
+      {activeGalleryItem ? (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-4 backdrop-blur-sm"
+          onClick={() => setActiveGalleryItem(null)}
+        >
+          <div
+            className="w-full max-w-6xl rounded-xl border border-line/90 bg-[#0b1d16] p-3 sm:p-5"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div className="mb-3 flex items-start justify-between gap-3 sm:mb-4">
+              <div>
+                <h3 className="font-serif text-3xl leading-tight text-title sm:text-4xl">{activeGalleryItem.title}</h3>
+                <p className="mt-2 max-w-[70ch] text-sm leading-relaxed text-copy sm:text-base">{activeGalleryItem.caption}</p>
+              </div>
+              <button
+                type="button"
+                className="rounded-md border border-line/90 px-3 py-1 font-mono text-xs text-muted transition-colors hover:text-title"
+                onClick={() => setActiveGalleryItem(null)}
+              >
+                close
+              </button>
+            </div>
+            <img
+              src={activeGalleryItem.image}
+              alt={activeGalleryItem.title}
+              className="max-h-[75vh] w-full rounded-lg object-contain"
+            />
+          </div>
+        </div>
+      ) : null}
     </div>
   )
 }
